@@ -1,0 +1,94 @@
+// -*- C++ -*- C forwarding header.
+
+#include <android/api-level.h>
+#include <bits/c++config.h>
+
+#ifndef _GLIBCXX_STRING_FIX_EARLY_ANDROID_NDK_NATIVE_API_LEVEL_TARGET
+#define _GLIBCXX_STRING_FIX_EARLY_ANDROID_NDK_NATIVE_API_LEVEL_TARGET 1
+
+#if __GLIBCXX__ == 20150123
+
+#include <../../4.9/include/string>
+
+#if __cplusplus >= 201103L
+
+#include <ext/vstring_fwd.h>
+#include <ext/vstring.h>
+#include <ext/string_conversions.h>
+
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
+
+  using namespace __gnu_cxx;
+  using ::vsnprintf;
+
+  inline string
+  to_string(int __val)
+  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, 4 * sizeof(int),
+					   "%d", __val); }
+
+  inline string
+  to_string(unsigned __val)
+  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+					   4 * sizeof(unsigned),
+					   "%u", __val); }
+
+  inline string
+  to_string(long __val)
+  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, 4 * sizeof(long),
+					   "%ld", __val); }
+
+  inline string
+  to_string(unsigned long __val)
+  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+					   4 * sizeof(unsigned long),
+					   "%lu", __val); }
+
+  inline string
+  to_string(long long __val)
+  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+					   4 * sizeof(long long),
+					   "%lld", __val); }
+
+  inline string
+  to_string(unsigned long long __val)
+  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+					   4 * sizeof(unsigned long long),
+					   "%llu", __val); }
+
+  inline string
+  to_string(float __val)
+  {
+    const int __n = 
+      __gnu_cxx::__numeric_traits<float>::__max_exponent10 + 20;
+    return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
+					   "%f", __val);
+  }
+
+  inline string
+  to_string(double __val)
+  {
+    const int __n = 
+      __gnu_cxx::__numeric_traits<double>::__max_exponent10 + 20;
+    return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
+					   "%f", __val);
+  }
+
+  inline string
+  to_string(long double __val)
+  {
+    const int __n = 
+      __gnu_cxx::__numeric_traits<long double>::__max_exponent10 + 20;
+    return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
+					   "%Lf", __val);
+  }
+
+_GLIBCXX_END_NAMESPACE_VERSION
+} // namespace
+
+#endif // C++11
+
+#endif // __GLIBCXX__ == 20150123
+
+#endif

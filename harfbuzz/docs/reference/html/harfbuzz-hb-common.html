@@ -1,0 +1,1094 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>hb-common</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="HarfBuzz Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="harfbuzz-hb.html" title="hb">
+<link rel="next" href="harfbuzz-hb-unicode.html" title="hb-unicode">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
+                   | 
+                  <a href="#harfbuzz-hb-common.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#harfbuzz-hb-common.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="harfbuzz-hb.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="harfbuzz-hb-unicode.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="harfbuzz-hb-common"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="harfbuzz-hb-common.top_of_page"></a>hb-common</span></h2>
+<p>hb-common</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="harfbuzz-hb-common.synopsis"></a><h2>Synopsis</h2>
+<a name="hb-direction-t"></a><a name="hb-language-t"></a><a name="hb-script-t"></a><a name="hb-user-data-key-t"></a><pre class="synopsis">#define             <a class="link" href="harfbuzz-hb-common.html#HB-DIRECTION-REVERSE:CAPS" title="HB_DIRECTION_REVERSE()">HB_DIRECTION_REVERSE</a>                (dir)
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-LANGUAGE-INVALID:CAPS" title="HB_LANGUAGE_INVALID">HB_LANGUAGE_INVALID</a>
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-TAG:CAPS" title="HB_TAG()">HB_TAG</a>                              (c1,
+                                                         c2,
+                                                         c3,
+                                                         c4)
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-TAG-NONE:CAPS" title="HB_TAG_NONE">HB_TAG_NONE</a>
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-UNTAG:CAPS" title="HB_UNTAG()">HB_UNTAG</a>                            (tag)
+typedef             <a class="link" href="harfbuzz-hb-common.html#hb-bool-t" title="hb_bool_t">hb_bool_t</a>;
+typedef             <a class="link" href="harfbuzz-hb-common.html#hb-codepoint-t" title="hb_codepoint_t">hb_codepoint_t</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="harfbuzz-hb-common.html#hb-destroy-func-t" title="hb_destroy_func_t ()">*hb_destroy_func_t</a>)                (<em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+<a class="link" href="harfbuzz-hb-common.html#hb-direction-t"><span class="returnvalue">hb_direction_t</span></a>      <a class="link" href="harfbuzz-hb-common.html#hb-direction-from-string" title="hb_direction_from_string ()">hb_direction_from_string</a>            (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);
+enum                <a class="link" href="harfbuzz-hb-common.html#hb-direction-t-enum" title="enum hb_direction_t">hb_direction_t</a>;
+const <span class="returnvalue">char</span> *        <a class="link" href="harfbuzz-hb-common.html#hb-direction-to-string" title="hb_direction_to_string ()">hb_direction_to_string</a>              (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-direction-t"><span class="type">hb_direction_t</span></a> direction</code></em>);
+<a class="link" href="harfbuzz-hb-common.html#hb-language-t"><span class="returnvalue">hb_language_t</span></a>       <a class="link" href="harfbuzz-hb-common.html#hb-language-from-string" title="hb_language_from_string ()">hb_language_from_string</a>             (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);
+<a class="link" href="harfbuzz-hb-common.html#hb-language-t"><span class="returnvalue">hb_language_t</span></a>       <a class="link" href="harfbuzz-hb-common.html#hb-language-get-default" title="hb_language_get_default ()">hb_language_get_default</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+typedef             <a class="link" href="harfbuzz-hb-common.html#hb-language-t">hb_language_t</a>;
+const <span class="returnvalue">char</span> *        <a class="link" href="harfbuzz-hb-common.html#hb-language-to-string" title="hb_language_to_string ()">hb_language_to_string</a>               (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-language-t"><span class="type">hb_language_t</span></a> language</code></em>);
+typedef             <a class="link" href="harfbuzz-hb-common.html#hb-mask-t" title="hb_mask_t">hb_mask_t</a>;
+typedef             <a class="link" href="harfbuzz-hb-common.html#hb-position-t" title="hb_position_t">hb_position_t</a>;
+<a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="returnvalue">hb_script_t</span></a>         <a class="link" href="harfbuzz-hb-common.html#hb-script-from-iso15924-tag" title="hb_script_from_iso15924_tag ()">hb_script_from_iso15924_tag</a>         (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="type">hb_tag_t</span></a> tag</code></em>);
+<a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="returnvalue">hb_script_t</span></a>         <a class="link" href="harfbuzz-hb-common.html#hb-script-from-string" title="hb_script_from_string ()">hb_script_from_string</a>               (<em class="parameter"><code>const <span class="type">char</span> *s</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);
+<a class="link" href="harfbuzz-hb-common.html#hb-direction-t"><span class="returnvalue">hb_direction_t</span></a>      <a class="link" href="harfbuzz-hb-common.html#hb-script-get-horizontal-direction" title="hb_script_get_horizontal_direction ()">hb_script_get_horizontal_direction</a>  (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="type">hb_script_t</span></a> script</code></em>);
+enum                <a class="link" href="harfbuzz-hb-common.html#hb-script-t-enum" title="enum hb_script_t">hb_script_t</a>;
+<a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="returnvalue">hb_tag_t</span></a>            <a class="link" href="harfbuzz-hb-common.html#hb-script-to-iso15924-tag" title="hb_script_to_iso15924_tag ()">hb_script_to_iso15924_tag</a>           (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="type">hb_script_t</span></a> script</code></em>);
+<a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="returnvalue">hb_tag_t</span></a>            <a class="link" href="harfbuzz-hb-common.html#hb-tag-from-string" title="hb_tag_from_string ()">hb_tag_from_string</a>                  (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);
+typedef             <a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t">hb_tag_t</a>;
+<span class="returnvalue">void</span>                <a class="link" href="harfbuzz-hb-common.html#hb-tag-to-string" title="hb_tag_to_string ()">hb_tag_to_string</a>                    (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="type">hb_tag_t</span></a> tag</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *buf</code></em>);
+                    <a class="link" href="harfbuzz-hb-common.html#hb-user-data-key-t-struct" title="hb_user_data_key_t">hb_user_data_key_t</a>;
+                    <a class="link" href="harfbuzz-hb-common.html#hb-var-int-t" title="hb_var_int_t">hb_var_int_t</a>;
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-DIRECTION-IS-BACKWARD:CAPS" title="HB_DIRECTION_IS_BACKWARD()">HB_DIRECTION_IS_BACKWARD</a>            (dir)
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-DIRECTION-IS-FORWARD:CAPS" title="HB_DIRECTION_IS_FORWARD()">HB_DIRECTION_IS_FORWARD</a>             (dir)
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-DIRECTION-IS-HORIZONTAL:CAPS" title="HB_DIRECTION_IS_HORIZONTAL()">HB_DIRECTION_IS_HORIZONTAL</a>          (dir)
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-DIRECTION-IS-VALID:CAPS" title="HB_DIRECTION_IS_VALID()">HB_DIRECTION_IS_VALID</a>               (dir)
+#define             <a class="link" href="harfbuzz-hb-common.html#HB-DIRECTION-IS-VERTICAL:CAPS" title="HB_DIRECTION_IS_VERTICAL()">HB_DIRECTION_IS_VERTICAL</a>            (dir)
+</pre>
+</div>
+<div class="refsect1">
+<a name="harfbuzz-hb-common.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----hb_direction_t
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----hb_language_t
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----hb_script_t
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----hb_user_data_key_t
+</pre>
+</div>
+<div class="refsect1">
+<a name="harfbuzz-hb-common.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="harfbuzz-hb-common.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="HB-DIRECTION-REVERSE:CAPS"></a><h3>HB_DIRECTION_REVERSE()</h3>
+<pre class="programlisting">#define HB_DIRECTION_REVERSE(dir) ((hb_direction_t) (((unsigned int) (dir)) ^ 1)) /* Direction must be valid */
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-LANGUAGE-INVALID:CAPS"></a><h3>HB_LANGUAGE_INVALID</h3>
+<pre class="programlisting">#define HB_LANGUAGE_INVALID ((hb_language_t) NULL)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-TAG:CAPS"></a><h3>HB_TAG()</h3>
+<pre class="programlisting">#define HB_TAG(c1,c2,c3,c4) ((hb_tag_t)((((uint8_t)(c1))&lt;&lt;24)|(((uint8_t)(c2))&lt;&lt;16)|(((uint8_t)(c3))&lt;&lt;8)|((uint8_t)(c4))))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-TAG-NONE:CAPS"></a><h3>HB_TAG_NONE</h3>
+<pre class="programlisting">#define HB_TAG_NONE HB_TAG(0,0,0,0)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-UNTAG:CAPS"></a><h3>HB_UNTAG()</h3>
+<pre class="programlisting">#define HB_UNTAG(tag)   ((uint8_t)((tag)&gt;&gt;24)), ((uint8_t)((tag)&gt;&gt;16)), ((uint8_t)((tag)&gt;&gt;8)), ((uint8_t)(tag))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-bool-t"></a><h3>hb_bool_t</h3>
+<pre class="programlisting">typedef int hb_bool_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-codepoint-t"></a><h3>hb_codepoint_t</h3>
+<pre class="programlisting">typedef uint32_t hb_codepoint_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-destroy-func-t"></a><h3>hb_destroy_func_t ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*hb_destroy_func_t)                (<em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-direction-from-string"></a><h3>hb_direction_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-direction-t"><span class="returnvalue">hb_direction_t</span></a>      hb_direction_from_string            (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=len]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-direction-t-enum"></a><h3>enum hb_direction_t</h3>
+<pre class="programlisting">typedef enum {
+  HB_DIRECTION_INVALID = 0,
+  HB_DIRECTION_LTR = 4,
+  HB_DIRECTION_RTL,
+  HB_DIRECTION_TTB,
+  HB_DIRECTION_BTT
+} hb_direction_t;
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="HB-DIRECTION-INVALID:CAPS"></a><span class="term"><code class="literal">HB_DIRECTION_INVALID</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-DIRECTION-LTR:CAPS"></a><span class="term"><code class="literal">HB_DIRECTION_LTR</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-DIRECTION-RTL:CAPS"></a><span class="term"><code class="literal">HB_DIRECTION_RTL</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-DIRECTION-TTB:CAPS"></a><span class="term"><code class="literal">HB_DIRECTION_TTB</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-DIRECTION-BTT:CAPS"></a><span class="term"><code class="literal">HB_DIRECTION_BTT</code></span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-direction-to-string"></a><h3>hb_direction_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        hb_direction_to_string              (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-direction-t"><span class="type">hb_direction_t</span></a> direction</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-language-from-string"></a><h3>hb_language_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-language-t"><span class="returnvalue">hb_language_t</span></a>       hb_language_from_string             (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=len]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-language-get-default"></a><h3>hb_language_get_default ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-language-t"><span class="returnvalue">hb_language_t</span></a>       hb_language_get_default             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-language-t"></a><h3>hb_language_t</h3>
+<pre class="programlisting">typedef const struct hb_language_impl_t *hb_language_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-language-to-string"></a><h3>hb_language_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        hb_language_to_string               (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-language-t"><span class="type">hb_language_t</span></a> language</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-mask-t"></a><h3>hb_mask_t</h3>
+<pre class="programlisting">typedef uint32_t hb_mask_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-position-t"></a><h3>hb_position_t</h3>
+<pre class="programlisting">typedef int32_t hb_position_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-script-from-iso15924-tag"></a><h3>hb_script_from_iso15924_tag ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="returnvalue">hb_script_t</span></a>         hb_script_from_iso15924_tag         (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="type">hb_tag_t</span></a> tag</code></em>);</pre>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-script-from-string"></a><h3>hb_script_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="returnvalue">hb_script_t</span></a>         hb_script_from_string               (<em class="parameter"><code>const <span class="type">char</span> *s</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=len]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-script-get-horizontal-direction"></a><h3>hb_script_get_horizontal_direction ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-direction-t"><span class="returnvalue">hb_direction_t</span></a>      hb_script_get_horizontal_direction  (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="type">hb_script_t</span></a> script</code></em>);</pre>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-script-t-enum"></a><h3>enum hb_script_t</h3>
+<pre class="programlisting">typedef enum {
+  /*1.1*/ HB_SCRIPT_COMMON			= HB_TAG ('Z','y','y','y'),
+  /*1.1*/ HB_SCRIPT_INHERITED			= HB_TAG ('Z','i','n','h'),
+  /*5.0*/ HB_SCRIPT_UNKNOWN			= HB_TAG ('Z','z','z','z'),
+
+  /*1.1*/ HB_SCRIPT_ARABIC			= HB_TAG ('A','r','a','b'),
+  /*1.1*/ HB_SCRIPT_ARMENIAN			= HB_TAG ('A','r','m','n'),
+  /*1.1*/ HB_SCRIPT_BENGALI			= HB_TAG ('B','e','n','g'),
+  /*1.1*/ HB_SCRIPT_CYRILLIC			= HB_TAG ('C','y','r','l'),
+  /*1.1*/ HB_SCRIPT_DEVANAGARI			= HB_TAG ('D','e','v','a'),
+  /*1.1*/ HB_SCRIPT_GEORGIAN			= HB_TAG ('G','e','o','r'),
+  /*1.1*/ HB_SCRIPT_GREEK			= HB_TAG ('G','r','e','k'),
+  /*1.1*/ HB_SCRIPT_GUJARATI			= HB_TAG ('G','u','j','r'),
+  /*1.1*/ HB_SCRIPT_GURMUKHI			= HB_TAG ('G','u','r','u'),
+  /*1.1*/ HB_SCRIPT_HANGUL			= HB_TAG ('H','a','n','g'),
+  /*1.1*/ HB_SCRIPT_HAN				= HB_TAG ('H','a','n','i'),
+  /*1.1*/ HB_SCRIPT_HEBREW			= HB_TAG ('H','e','b','r'),
+  /*1.1*/ HB_SCRIPT_HIRAGANA			= HB_TAG ('H','i','r','a'),
+  /*1.1*/ HB_SCRIPT_KANNADA			= HB_TAG ('K','n','d','a'),
+  /*1.1*/ HB_SCRIPT_KATAKANA			= HB_TAG ('K','a','n','a'),
+  /*1.1*/ HB_SCRIPT_LAO				= HB_TAG ('L','a','o','o'),
+  /*1.1*/ HB_SCRIPT_LATIN			= HB_TAG ('L','a','t','n'),
+  /*1.1*/ HB_SCRIPT_MALAYALAM			= HB_TAG ('M','l','y','m'),
+  /*1.1*/ HB_SCRIPT_ORIYA			= HB_TAG ('O','r','y','a'),
+  /*1.1*/ HB_SCRIPT_TAMIL			= HB_TAG ('T','a','m','l'),
+  /*1.1*/ HB_SCRIPT_TELUGU			= HB_TAG ('T','e','l','u'),
+  /*1.1*/ HB_SCRIPT_THAI			= HB_TAG ('T','h','a','i'),
+
+  /*2.0*/ HB_SCRIPT_TIBETAN			= HB_TAG ('T','i','b','t'),
+
+  /*3.0*/ HB_SCRIPT_BOPOMOFO			= HB_TAG ('B','o','p','o'),
+  /*3.0*/ HB_SCRIPT_BRAILLE			= HB_TAG ('B','r','a','i'),
+  /*3.0*/ HB_SCRIPT_CANADIAN_SYLLABICS		= HB_TAG ('C','a','n','s'),
+  /*3.0*/ HB_SCRIPT_CHEROKEE			= HB_TAG ('C','h','e','r'),
+  /*3.0*/ HB_SCRIPT_ETHIOPIC			= HB_TAG ('E','t','h','i'),
+  /*3.0*/ HB_SCRIPT_KHMER			= HB_TAG ('K','h','m','r'),
+  /*3.0*/ HB_SCRIPT_MONGOLIAN			= HB_TAG ('M','o','n','g'),
+  /*3.0*/ HB_SCRIPT_MYANMAR			= HB_TAG ('M','y','m','r'),
+  /*3.0*/ HB_SCRIPT_OGHAM			= HB_TAG ('O','g','a','m'),
+  /*3.0*/ HB_SCRIPT_RUNIC			= HB_TAG ('R','u','n','r'),
+  /*3.0*/ HB_SCRIPT_SINHALA			= HB_TAG ('S','i','n','h'),
+  /*3.0*/ HB_SCRIPT_SYRIAC			= HB_TAG ('S','y','r','c'),
+  /*3.0*/ HB_SCRIPT_THAANA			= HB_TAG ('T','h','a','a'),
+  /*3.0*/ HB_SCRIPT_YI				= HB_TAG ('Y','i','i','i'),
+
+  /*3.1*/ HB_SCRIPT_DESERET			= HB_TAG ('D','s','r','t'),
+  /*3.1*/ HB_SCRIPT_GOTHIC			= HB_TAG ('G','o','t','h'),
+  /*3.1*/ HB_SCRIPT_OLD_ITALIC			= HB_TAG ('I','t','a','l'),
+
+  /*3.2*/ HB_SCRIPT_BUHID			= HB_TAG ('B','u','h','d'),
+  /*3.2*/ HB_SCRIPT_HANUNOO			= HB_TAG ('H','a','n','o'),
+  /*3.2*/ HB_SCRIPT_TAGALOG			= HB_TAG ('T','g','l','g'),
+  /*3.2*/ HB_SCRIPT_TAGBANWA			= HB_TAG ('T','a','g','b'),
+
+  /*4.0*/ HB_SCRIPT_CYPRIOT			= HB_TAG ('C','p','r','t'),
+  /*4.0*/ HB_SCRIPT_LIMBU			= HB_TAG ('L','i','m','b'),
+  /*4.0*/ HB_SCRIPT_LINEAR_B			= HB_TAG ('L','i','n','b'),
+  /*4.0*/ HB_SCRIPT_OSMANYA			= HB_TAG ('O','s','m','a'),
+  /*4.0*/ HB_SCRIPT_SHAVIAN			= HB_TAG ('S','h','a','w'),
+  /*4.0*/ HB_SCRIPT_TAI_LE			= HB_TAG ('T','a','l','e'),
+  /*4.0*/ HB_SCRIPT_UGARITIC			= HB_TAG ('U','g','a','r'),
+
+  /*4.1*/ HB_SCRIPT_BUGINESE			= HB_TAG ('B','u','g','i'),
+  /*4.1*/ HB_SCRIPT_COPTIC			= HB_TAG ('C','o','p','t'),
+  /*4.1*/ HB_SCRIPT_GLAGOLITIC			= HB_TAG ('G','l','a','g'),
+  /*4.1*/ HB_SCRIPT_KHAROSHTHI			= HB_TAG ('K','h','a','r'),
+  /*4.1*/ HB_SCRIPT_NEW_TAI_LUE			= HB_TAG ('T','a','l','u'),
+  /*4.1*/ HB_SCRIPT_OLD_PERSIAN			= HB_TAG ('X','p','e','o'),
+  /*4.1*/ HB_SCRIPT_SYLOTI_NAGRI		= HB_TAG ('S','y','l','o'),
+  /*4.1*/ HB_SCRIPT_TIFINAGH			= HB_TAG ('T','f','n','g'),
+
+  /*5.0*/ HB_SCRIPT_BALINESE			= HB_TAG ('B','a','l','i'),
+  /*5.0*/ HB_SCRIPT_CUNEIFORM			= HB_TAG ('X','s','u','x'),
+  /*5.0*/ HB_SCRIPT_NKO				= HB_TAG ('N','k','o','o'),
+  /*5.0*/ HB_SCRIPT_PHAGS_PA			= HB_TAG ('P','h','a','g'),
+  /*5.0*/ HB_SCRIPT_PHOENICIAN			= HB_TAG ('P','h','n','x'),
+
+  /*5.1*/ HB_SCRIPT_CARIAN			= HB_TAG ('C','a','r','i'),
+  /*5.1*/ HB_SCRIPT_CHAM			= HB_TAG ('C','h','a','m'),
+  /*5.1*/ HB_SCRIPT_KAYAH_LI			= HB_TAG ('K','a','l','i'),
+  /*5.1*/ HB_SCRIPT_LEPCHA			= HB_TAG ('L','e','p','c'),
+  /*5.1*/ HB_SCRIPT_LYCIAN			= HB_TAG ('L','y','c','i'),
+  /*5.1*/ HB_SCRIPT_LYDIAN			= HB_TAG ('L','y','d','i'),
+  /*5.1*/ HB_SCRIPT_OL_CHIKI			= HB_TAG ('O','l','c','k'),
+  /*5.1*/ HB_SCRIPT_REJANG			= HB_TAG ('R','j','n','g'),
+  /*5.1*/ HB_SCRIPT_SAURASHTRA			= HB_TAG ('S','a','u','r'),
+  /*5.1*/ HB_SCRIPT_SUNDANESE			= HB_TAG ('S','u','n','d'),
+  /*5.1*/ HB_SCRIPT_VAI				= HB_TAG ('V','a','i','i'),
+
+  /*5.2*/ HB_SCRIPT_AVESTAN			= HB_TAG ('A','v','s','t'),
+  /*5.2*/ HB_SCRIPT_BAMUM			= HB_TAG ('B','a','m','u'),
+  /*5.2*/ HB_SCRIPT_EGYPTIAN_HIEROGLYPHS = HB_TAG ('E','g','y','p'),
+  /*5.2*/ HB_SCRIPT_IMPERIAL_ARAMAIC		= HB_TAG ('A','r','m','i'),
+  /*5.2*/ HB_SCRIPT_INSCRIPTIONAL_PAHLAVI = HB_TAG ('P','h','l','i'),
+  /*5.2*/ HB_SCRIPT_INSCRIPTIONAL_PARTHIAN = HB_TAG ('P','r','t','i'),
+  /*5.2*/ HB_SCRIPT_JAVANESE			= HB_TAG ('J','a','v','a'),
+  /*5.2*/ HB_SCRIPT_KAITHI			= HB_TAG ('K','t','h','i'),
+  /*5.2*/ HB_SCRIPT_LISU			= HB_TAG ('L','i','s','u'),
+  /*5.2*/ HB_SCRIPT_MEETEI_MAYEK		= HB_TAG ('M','t','e','i'),
+  /*5.2*/ HB_SCRIPT_OLD_SOUTH_ARABIAN		= HB_TAG ('S','a','r','b'),
+  /*5.2*/ HB_SCRIPT_OLD_TURKIC			= HB_TAG ('O','r','k','h'),
+  /*5.2*/ HB_SCRIPT_SAMARITAN			= HB_TAG ('S','a','m','r'),
+  /*5.2*/ HB_SCRIPT_TAI_THAM			= HB_TAG ('L','a','n','a'),
+  /*5.2*/ HB_SCRIPT_TAI_VIET			= HB_TAG ('T','a','v','t'),
+
+  /*6.0*/ HB_SCRIPT_BATAK			= HB_TAG ('B','a','t','k'),
+  /*6.0*/ HB_SCRIPT_BRAHMI			= HB_TAG ('B','r','a','h'),
+  /*6.0*/ HB_SCRIPT_MANDAIC			= HB_TAG ('M','a','n','d'),
+
+  /*6.1*/ HB_SCRIPT_CHAKMA			= HB_TAG ('C','a','k','m'),
+  /*6.1*/ HB_SCRIPT_MEROITIC_CURSIVE		= HB_TAG ('M','e','r','c'),
+  /*6.1*/ HB_SCRIPT_MEROITIC_HIEROGLYPHS = HB_TAG ('M','e','r','o'),
+  /*6.1*/ HB_SCRIPT_MIAO			= HB_TAG ('P','l','r','d'),
+  /*6.1*/ HB_SCRIPT_SHARADA			= HB_TAG ('S','h','r','d'),
+  /*6.1*/ HB_SCRIPT_SORA_SOMPENG		= HB_TAG ('S','o','r','a'),
+  /*6.1*/ HB_SCRIPT_TAKRI			= HB_TAG ('T','a','k','r'),
+
+  /* No script set. */
+  /*---*/ HB_SCRIPT_INVALID			= HB_TAG_NONE
+} hb_script_t;
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="HB-SCRIPT-COMMON:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_COMMON</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-INHERITED:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_INHERITED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-UNKNOWN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_UNKNOWN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-ARABIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_ARABIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-ARMENIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_ARMENIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BENGALI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BENGALI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CYRILLIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CYRILLIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-DEVANAGARI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_DEVANAGARI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-GEORGIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_GEORGIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-GREEK:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_GREEK</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-GUJARATI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_GUJARATI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-GURMUKHI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_GURMUKHI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-HANGUL:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_HANGUL</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-HAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_HAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-HEBREW:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_HEBREW</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-HIRAGANA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_HIRAGANA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-KANNADA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_KANNADA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-KATAKANA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_KATAKANA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LAO:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LAO</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LATIN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LATIN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MALAYALAM:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MALAYALAM</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-ORIYA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_ORIYA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAMIL:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAMIL</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TELUGU:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TELUGU</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-THAI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_THAI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TIBETAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TIBETAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BOPOMOFO:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BOPOMOFO</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BRAILLE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BRAILLE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CANADIAN-SYLLABICS:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CANADIAN_SYLLABICS</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CHEROKEE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CHEROKEE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-ETHIOPIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_ETHIOPIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-KHMER:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_KHMER</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MONGOLIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MONGOLIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MYANMAR:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MYANMAR</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OGHAM:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OGHAM</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-RUNIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_RUNIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SINHALA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SINHALA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SYRIAC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SYRIAC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-THAANA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_THAANA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-YI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_YI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-DESERET:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_DESERET</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-GOTHIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_GOTHIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OLD-ITALIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OLD_ITALIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BUHID:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BUHID</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-HANUNOO:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_HANUNOO</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAGALOG:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAGALOG</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAGBANWA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAGBANWA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CYPRIOT:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CYPRIOT</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LIMBU:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LIMBU</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LINEAR-B:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LINEAR_B</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OSMANYA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OSMANYA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SHAVIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SHAVIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAI-LE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAI_LE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-UGARITIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_UGARITIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BUGINESE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BUGINESE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-COPTIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_COPTIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-GLAGOLITIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_GLAGOLITIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-KHAROSHTHI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_KHAROSHTHI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-NEW-TAI-LUE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_NEW_TAI_LUE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OLD-PERSIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OLD_PERSIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SYLOTI-NAGRI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SYLOTI_NAGRI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TIFINAGH:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TIFINAGH</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BALINESE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BALINESE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CUNEIFORM:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CUNEIFORM</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-NKO:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_NKO</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-PHAGS-PA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_PHAGS_PA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-PHOENICIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_PHOENICIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CARIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CARIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CHAM:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CHAM</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-KAYAH-LI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_KAYAH_LI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LEPCHA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LEPCHA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LYCIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LYCIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LYDIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LYDIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OL-CHIKI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OL_CHIKI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-REJANG:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_REJANG</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SAURASHTRA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SAURASHTRA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SUNDANESE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SUNDANESE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-VAI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_VAI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-AVESTAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_AVESTAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BAMUM:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BAMUM</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-EGYPTIAN-HIEROGLYPHS:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_EGYPTIAN_HIEROGLYPHS</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-IMPERIAL-ARAMAIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_IMPERIAL_ARAMAIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-INSCRIPTIONAL-PAHLAVI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_INSCRIPTIONAL_PAHLAVI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-INSCRIPTIONAL-PARTHIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_INSCRIPTIONAL_PARTHIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-JAVANESE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_JAVANESE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-KAITHI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_KAITHI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-LISU:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_LISU</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MEETEI-MAYEK:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MEETEI_MAYEK</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OLD-SOUTH-ARABIAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OLD_SOUTH_ARABIAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-OLD-TURKIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_OLD_TURKIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SAMARITAN:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SAMARITAN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAI-THAM:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAI_THAM</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAI-VIET:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAI_VIET</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BATAK:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BATAK</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-BRAHMI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_BRAHMI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MANDAIC:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MANDAIC</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-CHAKMA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_CHAKMA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MEROITIC-CURSIVE:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MEROITIC_CURSIVE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MEROITIC-HIEROGLYPHS:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MEROITIC_HIEROGLYPHS</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-MIAO:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_MIAO</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SHARADA:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SHARADA</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-SORA-SOMPENG:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_SORA_SOMPENG</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-TAKRI:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_TAKRI</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="HB-SCRIPT-INVALID:CAPS"></a><span class="term"><code class="literal">HB_SCRIPT_INVALID</code></span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-script-to-iso15924-tag"></a><h3>hb_script_to_iso15924_tag ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="returnvalue">hb_tag_t</span></a>            hb_script_to_iso15924_tag           (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-script-t"><span class="type">hb_script_t</span></a> script</code></em>);</pre>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-tag-from-string"></a><h3>hb_tag_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="returnvalue">hb_tag_t</span></a>            hb_tag_from_string                  (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> len</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=len]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-tag-t"></a><h3>hb_tag_t</h3>
+<pre class="programlisting">typedef uint32_t hb_tag_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-tag-to-string"></a><h3>hb_tag_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                hb_tag_to_string                    (<em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-tag-t" title="hb_tag_t"><span class="type">hb_tag_t</span></a> tag</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *buf</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-user-data-key-t-struct"></a><h3>hb_user_data_key_t</h3>
+<pre class="programlisting">typedef struct {
+} hb_user_data_key_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-var-int-t"></a><h3>hb_var_int_t</h3>
+<pre class="programlisting">typedef union _hb_var_int_t {
+  uint32_t u32;
+  int32_t i32;
+  uint16_t u16[2];
+  int16_t i16[2];
+  uint8_t u8[4];
+  int8_t i8[4];
+} hb_var_int_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-DIRECTION-IS-BACKWARD:CAPS"></a><h3>HB_DIRECTION_IS_BACKWARD()</h3>
+<pre class="programlisting">#define HB_DIRECTION_IS_BACKWARD(dir) ((((unsigned int) (dir)) &amp; ~2U) == 5)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-DIRECTION-IS-FORWARD:CAPS"></a><h3>HB_DIRECTION_IS_FORWARD()</h3>
+<pre class="programlisting">#define HB_DIRECTION_IS_FORWARD(dir) ((((unsigned int) (dir)) &amp; ~2U) == 4)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-DIRECTION-IS-HORIZONTAL:CAPS"></a><h3>HB_DIRECTION_IS_HORIZONTAL()</h3>
+<pre class="programlisting">#define HB_DIRECTION_IS_HORIZONTAL(dir) ((((unsigned int) (dir)) &amp; ~1U) == 4)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-DIRECTION-IS-VALID:CAPS"></a><h3>HB_DIRECTION_IS_VALID()</h3>
+<pre class="programlisting">#define HB_DIRECTION_IS_VALID(dir) ((((unsigned int) (dir)) &amp; ~3U) == 4)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="HB-DIRECTION-IS-VERTICAL:CAPS"></a><h3>HB_DIRECTION_IS_VERTICAL()</h3>
+<pre class="programlisting">#define HB_DIRECTION_IS_VERTICAL(dir) ((((unsigned int) (dir)) &amp; ~1U) == 6)
+</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19.1</div>
+</body>
+</html>

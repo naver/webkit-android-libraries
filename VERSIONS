@@ -1,0 +1,25 @@
+Current versions:
+
+boringSSL       chromium-stable(1b5bcb59f40993de836e40bf4190f6ac6fbc9309)
+cairo           1.14.2
+cURL            7.49.1
+fontconfig      2.11
+freetype        android(2006)
+giflib          android-4.1.6
+harfbuzz        0.9.24
+hyphenation     android(2008)
+icu             chromium-52.1
+jpeg-turbo      chromium-1.2.80
+jpeg            6b  27-Mar-1998
+jsoncpp         dist 0.10.5
+libdl           dlfcn-win32(2007)
+libpng          1.6.15
+libxml2         android-2.7.6
+libxslt         android-1.1.26
+pixman          0.32.2
+pthreads-win32  2, 9, 1, 0
+safeint         3.0.18p
+sqlite          chromium-3.7.6.3
+webp            android-43/1443/1
+wtl             9.0
+zlib            chromium-1.2.4

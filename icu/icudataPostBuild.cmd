@@ -1,0 +1,1 @@
+xcopy /y /u "%WEBKIT_LIBRARIES%\..\sling\src\external\icu\windows\bin%PLATFORMARCHITECTURE%\icudt.dll" "%ConfigurationBuildDir%\bin%PlatformArchitecture%\"
