@@ -149,7 +149,7 @@
 #include <openssl/ssl.h>
 #include <openssl/stack.h>
 
-#if defined(OPENSSL_WINDOWS)
+#if defined(OPENSSL_WINDOWS) && defined(OPENSSL_USE_WINSOCK)
 /* Windows defines struct timeval in winsock2.h. */
 #pragma warning(push, 3)
 #include <winsock2.h>

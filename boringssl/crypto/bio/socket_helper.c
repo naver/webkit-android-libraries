@@ -22,9 +22,10 @@
 #include <string.h>
 #include <sys/types.h>
 
-#if !defined(OPENSSL_WINDOWS)
+#if !defined(OPENSSL_WINDOWS) || !defined(OPENSSL_USE_WINSOCK)
 #include <netdb.h>
 #include <unistd.h>
+#include <sys/socket.h>
 #else
 #pragma warning(push, 3)
 #include <winsock2.h>

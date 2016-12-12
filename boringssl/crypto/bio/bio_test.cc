@@ -18,7 +18,7 @@
 
 #include <openssl/base.h>
 
-#if !defined(OPENSSL_WINDOWS)
+#if !defined(OPENSSL_WINDOWS) || !defined(OPENSSL_USE_WINSOCK)
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include <netinet/in.h>

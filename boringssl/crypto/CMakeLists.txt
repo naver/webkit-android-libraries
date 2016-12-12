@@ -173,6 +173,24 @@ if(NOT MSVC AND NOT ANDROID)
   target_link_libraries(crypto pthread)
 endif()
 
+if(MSVC AND NOT ${CMAKE_GENERATOR} MATCHES "Ninja")
+  if(${MSVC_CXX_ARCHITECTURE_ID} STREQUAL "X86")
+    set(ASM_NASM_FORMAT win32)
+  else()
+    set(ASM_NASM_FORMAT win64)
+  endif()
+  set(CRYPTO_PRE_BUILD_COMMAND "${CMAKE_BINARY_DIR}/crypto/preBuild.cmd")
+  file(WRITE  "${CRYPTO_PRE_BUILD_COMMAND}" "@echo Running crypto pre build tasks...\n")
+  file(APPEND "${CRYPTO_PRE_BUILD_COMMAND}" "FOR /D %%D IN (*) DO ( CD %%D\n")
+  file(APPEND "${CRYPTO_PRE_BUILD_COMMAND}" "FOR /R %%I IN (*.asm) DO \"${CMAKE_ASM_NASM_COMPILER}\" -Xvc -f ${ASM_NASM_FORMAT} -o \"%%~dpI%%D.dir\\\\%CONFIGURATION%\\\\\" -rnasm -pnasm \"%%I\"\n")
+  file(APPEND "${CRYPTO_PRE_BUILD_COMMAND}" "CD .. )\n")
+  add_custom_command(TARGET crypto PRE_BUILD
+    COMMAND set CONFIGURATION=$<CONFIG>
+    COMMAND ${CRYPTO_PRE_BUILD_COMMAND}
+    WORKING_DIRECTORY ${CURRENT_BINARY_DIR}
+    VERBATIM)
+endif()
+
 add_executable(
   constant_time_test
 

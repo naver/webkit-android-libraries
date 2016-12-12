@@ -60,7 +60,7 @@
 #include <errno.h>
 #include <string.h>
 
-#if !defined(OPENSSL_WINDOWS)
+#if !defined(OPENSSL_WINDOWS) || !defined(OPENSSL_USE_WINSOCK)
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>

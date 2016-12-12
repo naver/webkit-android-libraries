@@ -1,4 +1,6 @@
 cmake_minimum_required (VERSION 2.8.10)
+set_property(DIRECTORY . PROPERTY FOLDER "boringssl")
+set(ENABLE_RUN_TESTS NO)
 
 # Defer enabling C and CXX languages.
 project (BoringSSL NONE)
@@ -22,7 +24,7 @@ else()
   find_program(GO_EXECUTABLE go)
 endif()
 
-if (NOT GO_EXECUTABLE)
+if (NOT GO_EXECUTABLE AND ENABLE_RUN_TESTS)
   message(FATAL_ERROR "Could not find Go")
 endif()
 
@@ -42,6 +44,7 @@ elseif(MSVC)
               # possible loss of data
       "C4245" # 'initializing' : conversion from 'long' to
               # 'unsigned long', signed/unsigned mismatch
+      "C4255" # 'function' : no function prototype given: converting '()' to '(void)'
       "C4267" # conversion from 'size_t' to 'int', possible loss of data
       "C4371" # layout of class may have changed from a previous version of the
               # compiler due to better packing of member '...'
@@ -183,9 +186,9 @@ add_custom_target(all_tests)
 
 add_subdirectory(crypto)
 add_subdirectory(ssl)
-add_subdirectory(ssl/test)
-add_subdirectory(tool)
-add_subdirectory(decrepit)
+#add_subdirectory(ssl/test)
+#add_subdirectory(tool)
+#add_subdirectory(decrepit)
 
 if(FUZZ)
   add_subdirectory(fuzz)
@@ -196,6 +199,7 @@ if (NOT ${CMAKE_VERSION} VERSION_LESS "3.2")
   set(MAYBE_USES_TERMINAL USES_TERMINAL)
 endif()
 
+if(ENABLE_RUN_TESTS)
 add_custom_target(
     run_tests
     COMMAND ${GO_EXECUTABLE} run util/all_tests.go -build-dir
@@ -206,3 +210,4 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     DEPENDS all_tests bssl_shim
     ${MAYBE_USES_TERMINAL})
+endif()

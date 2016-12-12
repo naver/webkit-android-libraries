@@ -59,7 +59,7 @@
 #include <errno.h>
 #include <string.h>
 
-#if !defined(OPENSSL_WINDOWS)
+#if !defined(OPENSSL_WINDOWS) || !defined(OPENSSL_USE_WINSOCK)
 #include <unistd.h>
 #else
 #include <io.h>

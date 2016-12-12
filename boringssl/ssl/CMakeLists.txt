@@ -51,3 +51,6 @@ add_executable(
 
 target_link_libraries(ssl_test ssl crypto)
 add_dependencies(all_tests ssl_test)
+
+add_post_build_command(ssl)
+copy_library_headers_directory(ssl ../include/openssl include/openssl)
