@@ -71,7 +71,7 @@
 #if defined(_AIX) || defined(__NOVELL_LIBC__) || defined(__NetBSD__) || \
     defined(__minix) || defined(__SYMBIAN32__) || defined(__INTEGRITY) || \
     defined(ANDROID) || defined(__ANDROID__) || defined(__OpenBSD__) || \
-   (defined(__FreeBSD_version) && (__FreeBSD_version < 800000))
+   (defined(__FreeBSD_version) && (__FreeBSD_version < 800000)) || defined(__ANDROID_API__)
 #include <sys/select.h>
 #endif
 
@@ -113,7 +113,7 @@ typedef void CURL;
 
 #ifndef curl_socket_typedef
 /* socket typedef */
-#if defined(WIN32) && !defined(__LWIP_OPT_H__) && !defined(LWIP_HDR_OPT_H)
+#if defined(WIN32) && !defined(__LWIP_OPT_H__) && !defined(LWIP_HDR_OPT_H) && !defined(_SYS_SELECT_H_)
 typedef SOCKET curl_socket_t;
 #define CURL_SOCKET_BAD INVALID_SOCKET
 #else

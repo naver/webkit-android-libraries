@@ -102,3 +102,6 @@ install(TARGETS ${LIB_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)
+
+add_post_build_command(${LIB_NAME})
+copy_library_headers_directory(${LIB_NAME} ../include/curl include/curl)

@@ -103,7 +103,7 @@ extern curl_free_callback Curl_cfree;
 extern curl_realloc_callback Curl_crealloc;
 extern curl_strdup_callback Curl_cstrdup;
 extern curl_calloc_callback Curl_ccalloc;
-#if defined(WIN32) && defined(UNICODE)
+#if defined(HAVE_WINDOWS_H) && defined(UNICODE)
 extern curl_wcsdup_callback Curl_cwcsdup;
 #endif
 
