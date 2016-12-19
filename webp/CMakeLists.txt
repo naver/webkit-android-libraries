@@ -67,8 +67,6 @@ set(SOURCES
     src/dsp/yuv.c
 )
 
-add_definitions(-DANDROID=1)
-
 add_library(${NAME} STATIC ${INCLUDES} ${SOURCES})
 
 add_post_build_command(webp)

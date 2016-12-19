@@ -8,9 +8,7 @@ if (WIN32)
     include_directories(
         "${CMAKE_SOURCE_DIR}/android/system/core/include"
         "${CMAKE_SOURCE_DIR}/android/system/core/include/cutils"
-        ${CMAKE_CURRENT_SOURCE_DIR}
-        "${CMAKE_SOURCE_DIR}/winsock2"
-        "${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win"
+        "${CMAKE_CURRENT_SOURCE_DIR}"
     )
 
     set(CUTILS_SOURCES
@@ -22,7 +20,7 @@ if (WIN32)
         uio.c
     )
 
-    add_definitions(-DANDROID=1 -DHAVE_MS_C_RUNTIME -DHAVE_WIN32_THREADS -DHAVE_WINSOCK -DOS_PATH_SEPARATOR=%27\\%27)
+    add_definitions(-DHAVE_MS_C_RUNTIME -DHAVE_WIN32_THREADS -DHAVE_WINSOCK -DOS_PATH_SEPARATOR=%27\\%27)
 
     add_library(${NAME} STATIC ${CUTILS_SOURCES})
 

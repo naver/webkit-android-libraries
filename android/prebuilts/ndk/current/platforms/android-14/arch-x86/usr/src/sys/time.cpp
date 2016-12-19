@@ -1,7 +1,7 @@
 // Windows gettimeofday implementation
 // https://social.msdn.microsoft.com/Forums/vstudio/en-US/430449b3-f6dd-4e18-84de-eebd26a8d668/gettimeofday?forum=vcgeneral
 
-#include "time.h"
+#include "sys/time.h"
 
 #if defined(WIN32) || defined(_WINDOWS)
 #include <time.h>

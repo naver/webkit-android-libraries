@@ -12,12 +12,10 @@ add_definitions(-DBUILDING_PTHREADNP)
 if (WIN32)
 
     include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/pthreads
+        "${CMAKE_CURRENT_SOURCE_DIR}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/pthreads"
         "${CMAKE_SOURCE_DIR}/android/system/core/include"
-        "${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win"
-        "${CMAKE_SOURCE_DIR}/winsock2"
     )
 
     link_directories(${OUTPUT_DIR} "${CMAKE_SOURCE_DIR}/pthreadnp/pthreads-win32/lib$(PlatformArchitecture)")
@@ -35,8 +33,8 @@ if (WIN32)
                    COMMAND xcopy /y /d ${PTHREAD_DLL} ${PTHREAD_DLL_PATH} & xcopy /y /d ${PTHREAD_LIB} ${PTHREAD_LIB_PATH})
 
     set(LIBRARY_DEPS
-        platforms
         cutils
+        ndk
         pthreadVC2
         ${WIN32_SYSTEM_LIBRARIES}
     )

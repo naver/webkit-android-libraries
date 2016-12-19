@@ -157,10 +157,7 @@ if (WIN32)
 
     include_directories(
         "${ANGLE_LIBRARY_DIR}/include"
-        "${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win"
         "${CMAKE_SOURCE_DIR}/jpeg"
-        "${CMAKE_SOURCE_DIR}/winsock2"
-        "${CMAKE_SOURCE_DIR}/winsock2/winsock2"
         "${CMAKE_SOURCE_DIR}/zlib"
     )
 
@@ -296,15 +293,15 @@ if (WIN32)
         boilerplate/cairo-boilerplate.c
     )
 
-    add_definitions(-DCAIRO_EXPORTS -DANDROID=1 -DCAIRO_HAS_DLSYM=1 -DHAVE_STDINT_H=1 -DHAVE_UINT64_T=1 -D_WIN32_WINNT=0x0601)
+    add_definitions(-DCAIRO_EXPORTS -DCAIRO_HAS_DLSYM=1 -DHAVE_STDINT_H=1 -DHAVE_UINT64_T=1 -D_WIN32_WINNT=0x0601)
 
     add_library(${NAME} SHARED ${CAIRO_INCLUDES} ${CAIRO_SOURCES})
 
     set(LIBRARY_DEPS
         pixman
         png
-        zlib
-        libdl
+        z
+        dl
         msimg32
         ${WIN32_SYSTEM_LIBRARIES}
     )

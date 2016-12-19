@@ -25,7 +25,7 @@
  * SUCH DAMAGE.
  */
 
-#include "mman.h"
+#include "sys/mman.h"
 
 #if defined(WIN32) || defined(_WINDOWS)
 

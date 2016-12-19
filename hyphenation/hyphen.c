@@ -42,7 +42,7 @@
 #include <stdlib.h> /* for NULL, malloc */
 #include <stdio.h>  /* for fprintf */
 #include <string.h> /* for strdup */
-#if !defined(WIN32) || defined(ANDROID)
+#if !defined(WIN32) || defined(__ANDROID_API__)
 #include <unistd.h> /* for close */
 #else
 #include <io.h> /* for close */

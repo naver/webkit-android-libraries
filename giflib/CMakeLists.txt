@@ -25,8 +25,6 @@ if (WIN32)
         gif_lib_private.h
     )
     
-    add_definitions(-DANDROID=1)
-
 else ()
 
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-format -O3")

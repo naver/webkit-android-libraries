@@ -26,9 +26,10 @@
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
+
 #ifndef _SYS_CDEFS_H_
 #define _SYS_CDEFS_H_
 
-#include <winsock2/sys/cdefs.h>
+#include "../win/sys/cdefs.h"
 
 #endif // _SYS_CDEFS_H_

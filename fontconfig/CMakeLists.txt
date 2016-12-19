@@ -45,11 +45,6 @@ include_directories(
 )
 
 if (WIN32)
-    include_directories(
-        "${CMAKE_SOURCE_DIR}/winsock2"
-        "${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win"
-    )
-
     set(FONTCONFIG_INCLUDES
         ${FONTCONFIG_INCLUDES}
         config-fixups.h
@@ -71,7 +66,7 @@ if (WIN32)
         src/ftglue.h
     )
 
-    add_definitions(-DANDROID=1 -DHAVE_CONFIG_H)
+    add_definitions(-DHAVE_CONFIG_H)
 else ()
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-missing-field-initializers -Wno-attributes -Wno-missing-field-initializers -Wno-attributes")
     add_definitions(-DHAVE_CONFIG_H -DHAVE_SYS_STATFS_H -DHAVE_STDINT_H -DHAVE_UINT64_T

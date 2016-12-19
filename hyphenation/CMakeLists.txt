@@ -14,18 +14,11 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 if (WIN32)
     
-    include_directories(
-        "${CMAKE_SOURCE_DIR}/winsock2"
-        "${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win"
-    )    
-    
     set(HYPHENATION_INCLUDES
         ${HYPHENATION_INCLUDES}
         hnjalloc.h
         hyphen.h
     )
-    
-    add_definitions(-DANDROID=1)
     
 else ()
 

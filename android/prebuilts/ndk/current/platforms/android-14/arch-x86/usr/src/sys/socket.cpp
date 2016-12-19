@@ -25,7 +25,7 @@
  * SUCH DAMAGE.
  */
 
-#include "socket.h"
+#include "sys/socket.h"
 
 #if defined(WIN32) || defined(_WINDOWS)
 

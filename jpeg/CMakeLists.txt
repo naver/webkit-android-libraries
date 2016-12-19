@@ -46,7 +46,7 @@ if (MSVC)
         jmemmgr.c
     )
 
-    add_definitions(-DANDROID=1 -D_WIN32_WINNT=0x0601 -UXMD_H)
+    add_definitions(-D_WIN32_WINNT=0x0601 -UXMD_H)
 
 else ()
 

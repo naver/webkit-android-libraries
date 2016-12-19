@@ -30,15 +30,15 @@ if (WIN32)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB")
     set(WIN32_SYSTEM_LIBRARIES concrt libcmt libcpmt msvcrt OLDNAMES Version vcruntime ucrt Shlwapi)
 
-    add_definitions(-DWIN32_POSIX -D_WINSOCKAPI_ -D__STDC_FORMAT_MACROS -DHAVE_STRUCT_TIMESPEC)
+    add_definitions(-D_WINSOCKAPI_ -D__STDC_FORMAT_MACROS -DHAVE_STRUCT_TIMESPEC)
     add_definitions(-DGL_GLEXT_PROTOTYPES -DCAIRO_WIN32_STATIC_BUILD -DCURL_STATICLIB -DLIBXML_STATIC -DLIBXSLT_STATIC -DXMD_H)
 
-    include_directories("${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win" "${CMAKE_SOURCE_DIR}/winsock2")
+    include_directories("${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/android-14/arch-x86/usr/include")
 
     macro(ADD_EXECUTABLE _name)
         _add_executable(${ARGV})
         if (TARGET ${_name})
-            target_link_libraries(${_name} platforms ${WIN32_SYSTEM_LIBRARIES})
+            target_link_libraries(${_name} ndk ${WIN32_SYSTEM_LIBRARIES})
         endif()
     endmacro()
 endif ()
@@ -76,9 +76,9 @@ if (WIN32) # Windows.
     add_subdirectory(wtl)
     add_subdirectory(zlib)
 
+    add_dependencies(ndk log cutils)
     add_dependencies(ssl ndk)
-    add_dependencies(platforms liblog ndk)
-    add_dependencies(zlib ndk)
+    add_dependencies(z ndk)
 else () # Android.
     add_subdirectory(freetype)
     add_subdirectory(harfbuzz)

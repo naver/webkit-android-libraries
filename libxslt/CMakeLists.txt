@@ -35,12 +35,7 @@ include_directories(
 
 if (WIN32)
 
-    include_directories(
-        "${CMAKE_SOURCE_DIR}/winsock2"
-        "${CMAKE_SOURCE_DIR}/android/prebuilts/ndk/current/platforms/win"
-    )
-
-    add_definitions(-DANDROID=1 -DLIBXSLT_STATIC -DLIBXML_STATIC)
+    add_definitions(-DLIBXSLT_STATIC -DLIBXML_STATIC)
 
 else ()
 

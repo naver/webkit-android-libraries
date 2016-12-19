@@ -27,7 +27,7 @@
 #ifndef _WS2_SHIMS_H_
 #define _WS2_SHIMS_H_
 
-#include <winsock2/Ws2_32.h>
+#include "ws2_32.h"
 
 __BEGIN_DECLS
 

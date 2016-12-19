@@ -39,8 +39,6 @@ if (WIN32)
         pngconf.h
     )
 
-    add_definitions(-DANDROID=1)
-
 else ()
 
     set(PNG_SOURCES

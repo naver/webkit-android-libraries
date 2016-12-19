@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12)
 
-set(NAME "zlib")
+set(NAME "z")
 project(${NAME})
 
 set(ZLIB_INCLUDES
@@ -58,7 +58,7 @@ set(LIBRARY_DEPS
 
 target_link_libraries(${NAME} ${LIBRARY_DEPS})
 
-add_post_build_command(zlib)
+add_post_build_command(${NAME})
 
 set(ZLIB_LIBRARY_HEADERS
     crc32.h
@@ -75,4 +75,4 @@ set(ZLIB_LIBRARY_HEADERS
     zutil.h
 )
 
-copy_library_headers(zlib "${ZLIB_LIBRARY_HEADERS}" include)
+copy_library_headers(${NAME} "${ZLIB_LIBRARY_HEADERS}" include)

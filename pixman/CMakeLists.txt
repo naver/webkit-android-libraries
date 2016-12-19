@@ -71,7 +71,7 @@ if (WIN32)
         "${CMAKE_SOURCE_DIR}/pixman/pixman"
     )
 
-    add_definitions(-DANDROID=1 -DHAVE_CONFIG_H)
+    add_definitions(-DHAVE_CONFIG_H)
 
 else ()
 

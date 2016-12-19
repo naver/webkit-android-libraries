@@ -25,7 +25,7 @@
  * SUCH DAMAGE.
  */
 
-#include "system_properties.h"
+#include "sys/system_properties.h"
 #include <cstring>
 #include <stdlib.h>
 

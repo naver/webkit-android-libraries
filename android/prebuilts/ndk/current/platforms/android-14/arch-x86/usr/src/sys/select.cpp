@@ -25,7 +25,7 @@
  * SUCH DAMAGE.
  */
 
-#include "select.h"
+#include "sys/select.h"
 
 #if defined(WIN32) || defined(_WINDOWS)
 
