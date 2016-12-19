@@ -67,19 +67,18 @@ add_dependencies(icuuc icudt)
 add_dependencies(xml2 icuin)
 
 if (WIN32) # Windows.
-    add_subdirectory(android/prebuilts/ndk/current/platforms)
+    add_subdirectory(android/prebuilts/ndk)
     add_subdirectory(android/system/core/liblog)
     add_subdirectory(jpeg)
     add_subdirectory(jsoncpp)
     add_subdirectory(libdl)
     add_subdirectory(webp)
-    add_subdirectory(winsock2)
     add_subdirectory(wtl)
     add_subdirectory(zlib)
 
-    add_dependencies(ssl platforms winsock2)
-    add_dependencies(platforms liblog winsock2)
-    add_dependencies(zlib platforms)
+    add_dependencies(ssl ndk)
+    add_dependencies(platforms liblog ndk)
+    add_dependencies(zlib ndk)
 else () # Android.
     add_subdirectory(freetype)
     add_subdirectory(harfbuzz)
